@@ -1,5 +1,4 @@
 const express = require('express');
-const authorModel = require('../models/author.model');
 const genresModel = require('../models/genres.model');
 const GenreRouter = express.Router();
 

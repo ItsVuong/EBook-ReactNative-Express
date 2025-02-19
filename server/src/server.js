@@ -13,7 +13,7 @@ app.use(cors());
 //Serve static files
 const staticFiles = express.static('public',
   {dotfiles: 'ignore', extensions: ['jpg', 'jpeg', 'png']})
-app.use(staticFiles)
+app.use('/img', staticFiles)
 
 //Use route so that clients can call apis
 app.use(indexRoute)
