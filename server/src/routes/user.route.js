@@ -1,5 +1,6 @@
 const express = require('express');
 const userModel = require('../models/user.model');
+const { authenticate, authorization } = require('../middlewares/auth.middleware');
 const UserRouter = express.Router()
 
 UserRouter.post('/', async (req, res) => {
@@ -12,7 +13,7 @@ UserRouter.post('/', async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 })
-UserRouter.get('/', async (req, res) => {
+UserRouter.get('/', authenticate, authorization, async (req, res) => {
   try {
     let { pageSize, currentPage, genre, author } = req.query
 
