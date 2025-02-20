@@ -1,4 +1,5 @@
 const multer = require('multer')
+const {unlink} =  require('node:fs/promises')
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -21,5 +22,17 @@ const storage = multer.diskStorage({
   }
 })
 
+const deleteImage = (path) => {
+  try {
+    unlink(path, (err) => {
+      if(err) throw err;
+      console.log(`${path} is deleted`)
+    })
+  } catch (err) {
+    throw err
+    console.log(err.message)
+  }
+}
+
 const upload = multer({ storage: storage }).single('file')
-module.exports = upload
+module.exports = {upload, deleteImage}
