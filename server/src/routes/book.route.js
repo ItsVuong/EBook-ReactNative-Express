@@ -95,7 +95,7 @@ BookRouter.put('/:id/update', async (req, res) => {
       if (req.file) {
         deleteImage('public/' + req.file.filename);
       }
-      res.send({ status: error.status || 500, message: error.message || 'Something when wrong' })
+      res.send({ status: error.status || 500, message: error.message || 'Something went wrong' })
     }
   })
 })
@@ -122,7 +122,7 @@ BookRouter.get('/', async (req, res) => {
     return res.status(200).send(result)
   } catch (error) {
     console.log(error);
-    res.status(500)
+    res.status(500).send("Something went wrong")
   }
 })
 BookRouter.get('/:id', async (req, res) => {
@@ -136,7 +136,7 @@ BookRouter.get('/:id', async (req, res) => {
     res.status(200).json(result)
   } catch (error) {
     console.log(error);
-    res.status(500)
+    res.status(500).send("Something went wrong")
   }
 })
 
@@ -157,7 +157,7 @@ BookRouter.delete('/:id', async (req, res) => {
     res.json(deletedBook)
   } catch (error) {
     console.log(error)
-    res.status(500).send('Something when wrong')
+    res.status(500).send('Something went wrong')
   }
 })
 
