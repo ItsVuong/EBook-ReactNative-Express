@@ -1,4 +1,6 @@
 import ParallaxScrollView from "@/components/ParallaxScrollView";
+import SearchBar from "@/components/StoreBar";
+import { ThemedText } from "@/components/ThemedText";
 import { StyleSheet, TouchableOpacity, View, Text, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -21,7 +23,9 @@ export default function HomeScreen() {
       <View style={{ height: 60 }}>
         {searchBar()}
       </View>
-        <View style={styles.fake_post}></View>
+        <View style={styles.fake_post}>
+          <ThemedText>abx xyz</ThemedText>
+        </View>
         <View style={styles.fake_post}></View>
         <View style={styles.fake_post}></View>
         <View style={styles.fake_post}></View>
